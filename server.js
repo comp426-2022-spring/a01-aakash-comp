@@ -33,9 +33,8 @@ fs.readFile('./www/index.html', 'utf8', (err, data) => {
     if(err){
         console.error(err)
         return
+        process.exit(1)
     }
-    process.exit(1)
-})
 
 // Define a const `server` as an arrow function using http.createServer. 
 // Use the documentation for the node.js http module. 
@@ -44,11 +43,11 @@ fs.readFile('./www/index.html', 'utf8', (err, data) => {
 // 2. set a header with content type `text/html`, and 
 // 3. end with the data that you are reading in from ./www/index.html.
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200
-    res.setHeader('A01-Aakash 426', 'text/html')
-    res.end('./www/index.html')
-})
+    const server = http.createServer((req, res) => {
+        res.statusCode = 200
+        res.setHeader('A01-Aakash 426', 'text/html')
+        res.end('./www/index.html')
+    })
 
 
 
@@ -57,8 +56,10 @@ const server = http.createServer((req, res) => {
 // Start the `server` const listening on the port defined by argument in your `port` const. 
 // Put the exact message `Server listening on port ${port}` on the console log. 
 
-server.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
+    server.listen(port, () => {
+        console.log(`Server listening on port ${port}`)
+    })
+
 })
 
 
